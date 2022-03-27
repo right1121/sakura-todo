@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Prop } from 'vue-property-decorator';
 import draggable from 'vuedraggable';
 import Task from '@/domain/task/task-class';
 import TaskList from '@/domain/task/task-class-list';
@@ -38,7 +38,7 @@ import TaskRow from './Row.vue';
 
 })
 export default class TasksView extends Vue {
-  taskList: TaskList = new TaskList();
+  @Prop({ required: true }) taskList!: TaskList;
 
   title = '';
 
