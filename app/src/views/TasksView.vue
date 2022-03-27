@@ -1,8 +1,17 @@
 <template>
   <div>
-    <TaskForm
-      @addTask="addTask"
-    />
+    <div class="modal" :class="{'is-active': showAddForm}">
+      <button class="modal-background" @click="showAddForm = false"></button>
+      <div class="modal-content">
+        <div class="box">
+          <TaskForm
+            @addTask="addTask"
+          />
+        </div>
+      </div>
+      <button class="modal-close is-large" aria-label="close" @click="showAddForm = false"></button>
+    </div>
+    <button class="button" @click="showAddForm = true">追加</button>
     <TaskTable
       :taskList="taskList"
     />
@@ -25,8 +34,11 @@ import Task from '@/domain/task/task-class';
 export default class Tasks extends Vue {
   taskList: TaskList = new TaskList();
 
+  showAddForm = false;
+
   addTask(task: Task) {
     this.taskList.push(task);
+    this.showAddForm = false;
   }
 }
 </script>
