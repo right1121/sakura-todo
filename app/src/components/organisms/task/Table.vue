@@ -26,9 +26,9 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import draggable from 'vuedraggable';
-import TaskRow from '@/components/organisms/TaskRow.vue';
 import Task from '@/domain/task/task-class';
 import TaskList from '@/domain/task/task-class-list';
+import TaskRow from './Row.vue';
 
 @Component({
   components: {

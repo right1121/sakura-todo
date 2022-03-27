@@ -1,19 +1,19 @@
 <template>
-  <div class="home">
-    <TasksView/>
+  <div>
+    <TaskTable/>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import TasksView from '@/components/organisms/task/Table.vue';
+import TaskTable from '@/components/organisms/Table.vue';
 
 @Component({
   components: {
-    TasksView,
+    TaskTable,
   },
 })
-export default class HomeView extends Vue {}
+export default class Tasks extends Vue {}
 </script>
 
 <style lang="scss" module>
