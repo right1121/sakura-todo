@@ -27,6 +27,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import draggable from 'vuedraggable';
 import TaskRow from '@/components/organisms/TaskRow.vue';
 import Task from '@/domain/task/task-class';
+import TaskList from '@/domain/task/task-class-list';
 
 @Component({
   components: {
@@ -36,9 +37,18 @@ import Task from '@/domain/task/task-class';
 
 })
 export default class TasksView extends Vue {
-  tasks: Task[] = [];
+  taskList: TaskList = new TaskList();
 
   title = '';
+
+  get tasks() {
+    return this.taskList.tasks;
+  }
+
+  /** 総見積工数(分) */
+  get totalManMinutes() {
+    return this.taskList.totalManMinutes;
+  }
 
   private addTask() {
     this.tasks.push(new Task(
