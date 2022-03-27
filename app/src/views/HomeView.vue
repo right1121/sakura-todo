@@ -1,17 +1,13 @@
 <template>
   <div class="home">
-    <TasksView/>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import TasksView from '@/components/organisms/task/Table.vue';
 
 @Component({
-  components: {
-    TasksView,
-  },
+  components: {},
 })
 export default class HomeView extends Vue {}
 </script>

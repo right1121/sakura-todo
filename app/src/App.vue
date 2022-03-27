@@ -2,6 +2,8 @@
   <div id="app">
     <nav>
       <router-link to="/">Home</router-link>
+      <span> | </span>
+      <router-link to="/tasks">Task</router-link>
     </nav>
     <router-view/>
   </div>

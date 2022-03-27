@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import TaskTable from '@/components/organisms/Table.vue';
+import TaskTable from '@/components/organisms/task/Table.vue';
 
 @Component({
   components: {
