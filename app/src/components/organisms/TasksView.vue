@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div>総見積工数: {{ totalManMinutes }} 分</div>
     <draggable :class="$style.tasks" v-model="tasks" tag="div">
       <transition-group>
         <template v-for="task in tasks">
