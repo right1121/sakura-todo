@@ -39,9 +39,9 @@ import { Component, Vue } from 'vue-property-decorator';
 export default class TaskForm extends Vue {
   title = '';
 
-  minManMinutes!: number;
+  minManMinutes: number | null = null;
 
-  maxManMinutes!: number;
+  maxManMinutes: number | null = null;
 
   add() {
     const task = new Task(this.title, this.minManMinutes, this.maxManMinutes);
