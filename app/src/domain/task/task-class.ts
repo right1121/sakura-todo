@@ -14,17 +14,19 @@ export default class Task {
     status: TaskStatus = 'Ready';
 
     /** 最短工数(分) */
-    minManMinutes = 0;
+    minManMinutes;
 
     /** 最長工数(分) */
-    maxManMinutes = 0;
+    maxManMinutes;
 
     /** 実績作業時間(分) */
     actualWork = 0;
 
-    constructor(title: string) {
+    constructor(title: string, minManMinutes = 0, maxManMinutes = 0) {
       this.id = Date.now();
       this.title = title;
+      this.minManMinutes = minManMinutes;
+      this.maxManMinutes = maxManMinutes;
     }
 
     /** 見積工数(分) */
