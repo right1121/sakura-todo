@@ -6,7 +6,7 @@
     <div class="field-body">
       <div class="field">
         <div class="control">
-          <input class="input is-small" type="text" name="time" placeholder="1h 15m">
+          <input class="input is-small" type="text" name="time" placeholder="1(時間)">
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>総見積工数: {{ totalManMinutes }} 分</div>
+    <div>総見積工数: {{ totalManHour }} 時間</div>
     <draggable :class="$style.tasks" v-model="taskList.tasks" tag="div">
       <transition-group>
         <template v-for="task in tasks">
@@ -8,6 +8,8 @@
             :key="task.id"
             :id="task.id"
             :title="task.title"
+            :minManHour="task.minManHour"
+            :maxManHour="task.maxManHour"
             :class="$style.task"
           />
         </template>
@@ -36,9 +38,9 @@ export default class TasksView extends Vue {
     return this.taskList.tasks;
   }
 
-  /** 総見積工数(分) */
-  get totalManMinutes() {
-    return this.taskList.totalManMinutes;
+  /** 総見積工数(時間) */
+  get totalManHour() {
+    return this.taskList.totalManHour;
   }
 }
 </script>

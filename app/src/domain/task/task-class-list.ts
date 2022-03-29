@@ -12,15 +12,15 @@ export default class TaskList {
   }
 
   /** 総見積工数(分) */
-  get totalManMinutes() {
-    return this.calcAllManMinutes();
+  get totalManHour() {
+    return this.calcAllManHour();
   }
 
   /**
    * 総見積工数を計算する
    * @returns 見積工数
    */
-  calcAllManMinutes() {
-    return this.tasks.reduce((pre, task) => pre + task.manMinutes, 0);
+  calcAllManHour() {
+    return this.tasks.reduce((pre, task) => pre + task.manHour, 0);
   }
 }

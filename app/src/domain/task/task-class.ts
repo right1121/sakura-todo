@@ -14,24 +14,24 @@ export default class Task {
     status: TaskStatus = 'Ready';
 
     /** 最短工数(分) */
-    minManMinutes;
+    minManHour;
 
     /** 最長工数(分) */
-    maxManMinutes;
+    maxManHour;
 
     /** 実績作業時間(分) */
     actualWork = 0;
 
-    constructor(title: string, minManMinutes = 0, maxManMinutes = 0) {
+    constructor(title: string, minManHour = 0, maxManHour = 0) {
       this.id = Date.now();
       this.title = title;
-      this.minManMinutes = minManMinutes;
-      this.maxManMinutes = maxManMinutes;
+      this.minManHour = minManHour;
+      this.maxManHour = maxManHour;
     }
 
     /** 見積工数(分) */
-    get manMinutes() {
-      return this.calcManMinutes();
+    get manHour() {
+      return this.calcManHour();
     }
 
     /** バッファ */
@@ -43,8 +43,8 @@ export default class Task {
      * 見積工数を計算する
      * @returns 見積工数
      */
-    calcManMinutes() {
-      return this.minManMinutes + this.calcBuffer();
+    calcManHour() {
+      return this.minManHour + this.calcBuffer();
     }
 
     /**
@@ -52,6 +52,6 @@ export default class Task {
      * @returns バッファ時間(分)
      */
     calcBuffer() {
-      return (this.maxManMinutes - this.minManMinutes) / 2;
+      return (this.maxManHour - this.minManHour) / 2;
     }
 }

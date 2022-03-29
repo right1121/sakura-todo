@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="modal" :class="{'is-active': showAddForm}">
+    <div class="modal is-active" v-if="showAddForm">
       <button class="modal-background" @click="showAddForm = false"></button>
       <div class="modal-content">
         <div class="box">

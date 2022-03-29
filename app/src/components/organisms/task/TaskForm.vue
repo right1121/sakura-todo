@@ -6,7 +6,10 @@
       </div>
       <div class="field-body">
         <div class="field">
-          <input class="input" type="text" placeholder="" v-model="title">
+          <ValidationProvider name="タスク名" v-slot="v" rules="required">
+            <input class="input" type="text" placeholder="" v-model="title" ref="title">
+            <span>{{ v.errors[0] }}</span>
+          </ValidationProvider>
         </div>
       </div>
     </div>
@@ -16,10 +19,30 @@
       </div>
       <div class="field-body">
         <div class="field">
-          <input class="input" type="number" placeholder="最小工数" v-model.number="minManMinutes">
+          <ValidationProvider name="最小工数" v-slot="v" rules="required">
+              <input
+                class="input"
+                type="number"
+                placeholder="1.5(時間)"
+                v-model.number="minManHour"
+                min="0"
+                onfocus="this.select()"
+              >
+            <span>{{ v.errors[0] }}</span>
+          </ValidationProvider>
         </div>
         <div class="field">
-          <input class="input" type="number" placeholder="最大工数" v-model.number="maxManMinutes">
+          <ValidationProvider name="最大工数" v-slot="v" rules="required">
+            <input
+              class="input"
+              type="number"
+              placeholder="1.5(時間)"
+              v-model.number="maxManHour"
+              min="0"
+              onfocus="this.select()"
+            >
+            <span>{{ v.errors[0] }}</span>
+          </ValidationProvider>
         </div>
       </div>
     </div>
@@ -33,18 +56,31 @@
 
 <script lang="ts">
 import Task from '@/domain/task/task-class';
+import AbbreviatedTimeInput from '@/components/molecules/AbbreviatedTimeInput.vue';
 import { Component, Vue } from 'vue-property-decorator';
 
-@Component({})
+@Component({
+  components: {
+    AbbreviatedTimeInput,
+  },
+})
 export default class TaskForm extends Vue {
   title = '';
 
-  minManMinutes: number | null = null;
+  minManHour? = null;
 
-  maxManMinutes: number | null = null;
+  maxManHour? = null;
+
+  getRefs():any {
+    return this.$refs;
+  }
+
+  mounted() {
+    this.getRefs().title!.focus();
+  }
 
   add() {
-    const task = new Task(this.title, this.minManMinutes, this.maxManMinutes);
+    const task = new Task(this.title, Number(this.minManHour), Number(this.maxManHour));
     this.$emit('addTask', task);
   }
 }
