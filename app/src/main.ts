@@ -4,6 +4,7 @@ import App from './App.vue';
 import './registerServiceWorker';
 import router from './router';
 import store from './store';
+import './validate';
 
 awesome();
 Vue.config.productionTip = false;
