@@ -29,7 +29,7 @@ export default class Task {
       this.maxManHour = maxManHour;
     }
 
-    /** 見積工数(分) */
+    /** 見積工数(時間) */
     get manHour() {
       return this.calcManHour();
     }
@@ -49,7 +49,7 @@ export default class Task {
 
     /**
      * バッファ時間を計算する
-     * @returns バッファ時間(分)
+     * @returns バッファ時間
      */
     calcBuffer() {
       return (this.maxManHour - this.minManHour) / 2;
