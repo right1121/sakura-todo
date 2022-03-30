@@ -9,9 +9,7 @@
     <div :class="$style.id">{{ id }}</div>
     <div :class="$style.title">{{ title }}</div>
     <div :class="$style.space"></div>
-    <div :class="$style.minManHour">
-      {{ minManHour }}h ~ {{ maxManHour }}h
-    </div>
+    <div :class="$style.manHour">{{ manHour }}時間</div>
     <ActualWorkInput />
   </div>
 </template>
@@ -30,9 +28,7 @@ export default class TaskRow extends Vue {
 
   @Prop({ required: true }) title!: string;
 
-  @Prop({ required: true }) minManHour!: string;
-
-  @Prop({ required: true }) maxManHour!: string;
+  @Prop({ required: true }) manHour!: string;
 }
 </script>
 

@@ -8,8 +8,7 @@
             :key="task.id"
             :id="task.id"
             :title="task.title"
-            :minManHour="task.minManHour"
-            :maxManHour="task.maxManHour"
+            :manHour="task.manHour"
             :class="$style.task"
           />
         </template>
