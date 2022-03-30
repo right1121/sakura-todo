@@ -6,6 +6,8 @@ import router from './router';
 import store from './store';
 import './validate';
 
+import './assets/scss/global.scss';
+
 awesome();
 Vue.config.productionTip = false;
 

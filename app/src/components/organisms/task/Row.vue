@@ -3,8 +3,21 @@
     :class="$style.wrap"
     class="is-flex is-flex-direction-row is-align-items-center"
   >
-    <div>
-      <input type="checkbox" name="" id="">
+    <div
+      @mouseover="focusDoneButton"
+      @focus="focusDoneButton"
+      @mouseleave="focusOutDoneButton"
+      @focusout="focusOutDoneButton"
+      class="doneButton cursor-pointer"
+    >
+      <font-awesome-icon
+        :icon="['far', 'circle']"
+        v-show="!isOnMouseDoneButton"
+      />
+      <font-awesome-icon
+        :icon="['far', 'circle-check']"
+        v-show="isOnMouseDoneButton"
+      />
     </div>
     <div :class="$style.id">{{ id }}</div>
     <div :class="$style.title">{{ title }}</div>
@@ -29,6 +42,16 @@ export default class TaskRow extends Vue {
   @Prop({ required: true }) title!: string;
 
   @Prop({ required: true }) manHour!: string;
+
+  isOnMouseDoneButton = false;
+
+  focusDoneButton() {
+    this.isOnMouseDoneButton = true;
+  }
+
+  focusOutDoneButton() {
+    this.isOnMouseDoneButton = false;
+  }
 }
 </script>
 
