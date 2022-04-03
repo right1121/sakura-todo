@@ -19,7 +19,7 @@
       <ActualWorkInput />
     </div>
     <div class="column is-narrow">
-      <button class="button is-small">完了</button>
+      <button class="button is-small" @click="done">完了</button>
     </div>
   </div>
 </template>
@@ -48,6 +48,10 @@ export default class TaskRow extends Vue {
 
   focusOutDoneButton() {
     this.isOnMouseDoneButton = false;
+  }
+
+  done() {
+    this.$emit('done');
   }
 }
 </script>

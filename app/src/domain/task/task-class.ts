@@ -54,4 +54,8 @@ export default class Task {
     calcBuffer() {
       return (this.maxManHour - this.minManHour) / 2;
     }
+
+    done() {
+      this.status = 'Done';
+    }
 }

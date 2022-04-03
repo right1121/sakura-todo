@@ -20,6 +20,7 @@
                       :id="task.id"
                       :title="task.title"
                       :manHour="task.manHour"
+                      @done="done(task)"
                     />
                   </div>
                 </div>
@@ -37,6 +38,7 @@
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import draggable from 'vuedraggable';
 import TaskList from '@/domain/task/task-class-list';
+import Task from '@/domain/task/task-class';
 import TaskRow from './Row.vue';
 
 @Component({
@@ -56,6 +58,10 @@ export default class TasksView extends Vue {
   /** 総見積工数(時間) */
   get totalManHour() {
     return this.taskList.totalManHour;
+  }
+
+  done(task: Task) {
+    this.taskList.done(task);
   }
 }
 </script>

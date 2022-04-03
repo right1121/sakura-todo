@@ -11,6 +11,16 @@ export default class TaskList {
     this.tasks.push(task);
   }
 
+  done(task: Task) {
+    task.done();
+    this.tasks = this.tasks.slice().map((t) => {
+      if (t.id === task.id) {
+        return task;
+      }
+      return t;
+    });
+  }
+
   /** 総見積工数(分) */
   get totalManHour() {
     return this.calcAllManHour();
