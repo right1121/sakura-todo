@@ -26,6 +26,7 @@
                 placeholder="1.5(時間)"
                 v-model.number="minManHour"
                 min="0"
+                step="0.25"
                 onfocus="this.select()"
               >
             <span>{{ v.errors[0] }}</span>
@@ -39,6 +40,7 @@
               placeholder="1.5(時間)"
               v-model.number="maxManHour"
               min="0"
+              step="0.25"
               onfocus="this.select()"
             >
             <span>{{ v.errors[0] }}</span>
