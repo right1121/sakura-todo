@@ -1,26 +1,35 @@
 <template>
   <div>
     <div>総見積工数: {{ totalManHour }} 時間</div>
-    <draggable
-      :class="$style.tasks"
-      v-model="taskList.tasks"
-      tag="div"
-      :options="{handle: '.item-handle'}"
-    >
-      <transition-group>
-        <template v-for="task in tasks">
-          <div :key="task.id" :class="$style.task" class="is-flex is-align-items-center">
-            <div class="item-handle cursor-pointer">::</div>
-            <TaskRow
-              :key="task.id"
-              :id="task.id"
-              :title="task.title"
-              :manHour="task.manHour"
-            />
-          </div>
-        </template>
-      </transition-group>
-    </draggable>
+    <div>
+      <div class="columns is-vcentered is-mobile mx-0">
+        <div class="column is-full">
+          <draggable
+            :class="$style.tasks"
+            v-model="taskList.tasks"
+            tag="div"
+            :options="{handle: '.item-handle'}"
+          >
+            <transition-group>
+              <template v-for="task in tasks">
+                <div class="columns is-vcentered is-mobile" :key="task.id">
+                  <div class="item-handle cursor-pointer column is-narrow">::</div>
+                  <div class="column pl-0">
+                    <TaskRow
+                      :key="task.id"
+                      :id="task.id"
+                      :title="task.title"
+                      :manHour="task.manHour"
+                    />
+                  </div>
+                </div>
+              </template>
+            </transition-group>
+          </draggable>
+        </div>
+      </div>
+
+    </div>
   </div>
 </template>
 

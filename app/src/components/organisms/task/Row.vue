@@ -1,29 +1,26 @@
 <template>
   <div
-    :class="$style.wrap"
-    class="is-flex is-flex-direction-row is-align-items-center"
+    class="columns is-vcentered is-mobile"
   >
-    <div
-      @mouseover="focusDoneButton"
-      @focus="focusDoneButton"
-      @mouseleave="focusOutDoneButton"
-      @focusout="focusOutDoneButton"
-      class="doneButton cursor-pointer"
-    >
-      <font-awesome-icon
-        :icon="['far', 'circle']"
-        v-show="!isOnMouseDoneButton"
-      />
-      <font-awesome-icon
-        :icon="['far', 'circle-check']"
-        v-show="isOnMouseDoneButton"
-      />
+    <div class="column is-1">
+      {{ id }}
     </div>
-    <div :class="$style.id">{{ id }}</div>
-    <div :class="$style.title">{{ title }}</div>
-    <div :class="$style.space"></div>
-    <div :class="$style.manHour">{{ manHour }}時間</div>
-    <ActualWorkInput />
+    <div class="column">
+      {{ title }}
+    </div>
+    <div class="column level m-0">
+      <div class="level-right">
+      </div>
+    </div>
+    <div class="column is-narrow">
+      {{ manHour }}時間
+    </div>
+    <div class="column is-narrow">
+      <ActualWorkInput />
+    </div>
+    <div class="column is-narrow">
+      <button class="button is-small">完了</button>
+    </div>
   </div>
 </template>
 
@@ -56,21 +53,4 @@ export default class TaskRow extends Vue {
 </script>
 
 <style lang="scss" module>
-.wrap {
-  width: 100%;
-  opacity: 0.7;
-  padding: 5px 20px;
-  column-gap: .7rem;
-}
-
-.id {
-  align-items: center;
-  flex-shrink: 0;
-}
-.title {
-  flex-shrink: 1;
-}
-.space {
-  flex-grow: 1;
-}
 </style>
