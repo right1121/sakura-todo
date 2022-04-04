@@ -19,6 +19,7 @@
                       :key="task.id"
                       :id="task.id"
                       :title="task.title"
+                      :status="task.status"
                       :manHour="task.manHour"
                       @done="done(task)"
                     />
