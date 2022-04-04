@@ -4,7 +4,7 @@
 //   Done = 2,
 //   Cancel = 3,
 // }
-type TaskStatus = 'Ready' | 'InProgress' | 'Done' | 'Cancel'
+export type TaskStatus = 'Ready' | 'InProgress' | 'Done' | 'Cancel'
 
 export default class Task {
     id: number;

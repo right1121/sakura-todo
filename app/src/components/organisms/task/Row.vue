@@ -27,6 +27,7 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import ActualWorkInput from '@/components/molecules/ActualWorkInput.vue';
+import { TaskStatus } from '@/domain/task/task-class';
 
 @Component({
   components: {
@@ -35,6 +36,8 @@ import ActualWorkInput from '@/components/molecules/ActualWorkInput.vue';
 })
 export default class TaskRow extends Vue {
   @Prop({ required: true }) id!: number;
+
+  @Prop({ required: true }) status!: TaskStatus;
 
   @Prop({ required: true }) title!: string;
 
