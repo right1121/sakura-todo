@@ -6,6 +6,15 @@
 // }
 export type TaskStatus = 'Ready' | 'InProgress' | 'Done' | 'Cancel'
 
+export interface TaskProperty {
+  id: number;
+  title: string;
+  status: TaskStatus;
+  minManHour: number;
+  maxManHour: number;
+  actualWork: number;
+}
+
 export default class Task {
     id: number;
 
@@ -22,11 +31,37 @@ export default class Task {
     /** 実績作業時間(分) */
     actualWork = 0;
 
-    constructor(title: string, minManHour = 0, maxManHour = 0) {
-      this.id = Date.now();
+    constructor({
+      id,
+      title,
+      status,
+      minManHour,
+      maxManHour,
+      actualWork,
+    }: TaskProperty) {
+      this.id = id;
       this.title = title;
+      this.status = status;
       this.minManHour = minManHour;
       this.maxManHour = maxManHour;
+      this.actualWork = actualWork;
+    }
+
+    static new(title: string, minManHour = 0, maxManHour = 0) {
+      return new this(
+        {
+          id: Date.now(),
+          title,
+          status: 'Ready',
+          minManHour,
+          maxManHour,
+          actualWork: 0,
+        },
+      );
+    }
+
+    static initFromObject(param: TaskProperty) {
+      return new this(param);
     }
 
     /** 見積工数(時間) */

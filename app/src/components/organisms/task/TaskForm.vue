@@ -82,7 +82,7 @@ export default class TaskForm extends Vue {
   }
 
   add() {
-    const task = new Task(this.title, Number(this.minManHour), Number(this.maxManHour));
+    const task = Task.new(this.title, Number(this.minManHour), Number(this.maxManHour));
     this.$emit('addTask', task);
   }
 }
