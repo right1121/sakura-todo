@@ -37,6 +37,7 @@ export default class Tasks extends Vue {
   showAddForm = false;
 
   addTask(task: Task) {
+    this.$store.dispatch('pushTask', task);
     this.taskList.push(task);
     this.showAddForm = false;
   }
