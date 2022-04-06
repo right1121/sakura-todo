@@ -5,7 +5,9 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "firebase_login": "yarn run firebase login --no-localhost",
+    "deploy": "yarn build && yarn run firebase deploy"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
@@ -14,6 +16,7 @@
     "@fortawesome/vue-fontawesome": "^2.0.6",
     "bulma": "^0.9.3",
     "core-js": "^3.8.3",
+    "firebase": "^9.6.10",
     "register-service-worker": "^1.7.2",
     "vee-validate": "^3",
     "vue": "^2.6.14",
@@ -25,6 +28,7 @@
     "vuex-persistedstate": "^4.1.0"
   },
   "devDependencies": {
+    "@types/node": "^17.0.23",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "@vue/cli-plugin-babel": "~5.0.0",
@@ -42,6 +46,7 @@
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-vue": "^8.0.3",
     "eslint-plugin-vuejs-accessibility": "^1.1.0",
+    "firebase-tools": "^10.6.0",
     "postcss": "^8.4.12",
     "sass": "^1.32.7",
     "sass-loader": "^12.0.0",
